@@ -9,10 +9,10 @@ class NotesSceenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         child: Column(
           children: [
-            CutomAppBar(),
+            CustomAppBar(title: 'Notes', icon: Icons.search),
             NotesListView(),
           ],
         ),
