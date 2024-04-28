@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app_hive_db/views/widgets/add_note_form.dart';
+import 'widgets/add_note_form.dart';
 import 'widgets/notes_view_body.dart';
 
 class NotesView extends StatelessWidget {

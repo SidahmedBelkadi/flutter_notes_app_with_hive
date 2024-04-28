@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app_hive_db/views/widgets/add_note_form_button.dart';
+
+import 'add_note_form_button.dart';
+import 'custom_text_form_field.dart';
 
 class AddNoteForm extends StatelessWidget {
   const AddNoteForm({super.key});
@@ -8,20 +10,14 @@ class AddNoteForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(12.0),
-      child: Form(
+      child: const Form(
         child: Column(
           children: [
-            TextFormField(
-              decoration: const InputDecoration(label: Text("Title")),
-            ),
-            const SizedBox(height: 16),
-            TextFormField(
-              minLines: 6,
-              maxLines: 10,
-              decoration: const InputDecoration(label: Text("Description")),
-            ),
-            const SizedBox(height: 36),
-            const CustomAddNoteFormElevatedButton()
+            CustomTextFormField(title: "Title"),
+            SizedBox(height: 16),
+            CustomTextFormField(title: "Description", maxLines: 6),
+            SizedBox(height: 36),
+            CustomAddNoteFormElevatedButton(),
           ],
         ),
       ),
