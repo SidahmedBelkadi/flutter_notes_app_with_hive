@@ -43,7 +43,7 @@ class NoteItem extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            "Enim aliqua cillum sit elit commodo anim deserunt. Magna nisi do elit nisi culpa sint ex nulla aute aliquip commodo in adipisicing. Amet nostrud consequat incididunt nisi consectetur est est. In adipisicing ea occaecat dolore et ut veniam labore. Do enim voluptate occaecat laboris culpa irure labore adipisicing ut ad.",
+            "Enim aliqua cillum sit elit commodo anim deserunt. Magna nisi do elit nisi culpa sint ex  Amet nostrud consequat incididunt nisi",
             style: TextStyle(
               fontSize: 18,
               color: Colors.black.withOpacity(.6),
