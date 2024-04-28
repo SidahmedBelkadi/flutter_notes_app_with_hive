@@ -8,7 +8,7 @@ class CustomAddNoteFormElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(

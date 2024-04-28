@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'notes_list_view.dart';
 import 'custom_app_bar.dart';
 
-class NotesViewBody extends StatelessWidget {
-  const NotesViewBody({super.key});
+class NotesSceenBody extends StatelessWidget {
+  const NotesSceenBody({super.key});
 
   @override
   Widget build(BuildContext context) {

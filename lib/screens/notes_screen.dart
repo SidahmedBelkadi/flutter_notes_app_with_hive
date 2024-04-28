@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_hive_db/screens/widgets/notes_screen_body.dart';
 import 'widgets/add_note_form.dart';
-import 'widgets/notes_view_body.dart';
 
-class NotesView extends StatelessWidget {
-  const NotesView({super.key});
+class NotesScreen extends StatelessWidget {
+  const NotesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const NotesViewBody(),
+      body: const NotesSceenBody(),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showModalBottomSheet(context, const AddNoteForm()),
         backgroundColor: Colors.blueAccent,
