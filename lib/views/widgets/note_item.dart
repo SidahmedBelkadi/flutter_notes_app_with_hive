@@ -23,7 +23,7 @@ class NoteItem extends StatelessWidget {
                   "Eiusmod cupidatat magna dolore officia minim do ipsum cupidatat cupidatat eu amet mollit deserunt eiusmod.",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 24,
+                    fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
                   overflow: TextOverflow.ellipsis,
@@ -35,7 +35,7 @@ class NoteItem extends StatelessWidget {
                 onTap: () {},
                 child: const Icon(
                   CupertinoIcons.trash_fill,
-                  size: 28,
+                  size: 24,
                   color: Colors.black,
                 ),
               )
@@ -45,7 +45,7 @@ class NoteItem extends StatelessWidget {
           Text(
             "Enim aliqua cillum sit elit commodo anim deserunt. Magna nisi do elit nisi culpa sint ex  Amet nostrud consequat incididunt nisi",
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 16,
               color: Colors.black.withOpacity(.6),
             ),
           ),
