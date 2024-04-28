@@ -8,8 +8,9 @@ class NotesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.separated(
+        padding: const EdgeInsets.only(top: 16, bottom: 8),
         shrinkWrap: true,
-        itemCount: 3,
+        itemCount: 10,
         itemBuilder: (context, index) => const NoteItem(),
         separatorBuilder: (_, __) => const SizedBox(height: 16),
       ),
