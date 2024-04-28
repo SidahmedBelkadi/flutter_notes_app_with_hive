@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app_hive_db/views/widgets/custom_search_icon.dart';
+import 'custom_search_icon.dart';
 
 class CutomAppBar extends StatelessWidget {
   const CutomAppBar({super.key});
