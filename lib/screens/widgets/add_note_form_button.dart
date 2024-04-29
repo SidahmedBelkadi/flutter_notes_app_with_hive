@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomAddNoteFormElevatedButton extends StatelessWidget {
+  final void Function()? onPressed;
   const CustomAddNoteFormElevatedButton({
     super.key,
+    this.onPressed,
   });
 
   @override
@@ -10,7 +12,7 @@ class CustomAddNoteFormElevatedButton extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
