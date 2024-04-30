@@ -21,5 +21,10 @@ class NoteModel extends HiveObject {
     required this.color,
   });
 
-  String get formattedDate => DateFormat('MMMM dd, yyyy').format(DateTime.parse(date));
+  String get formattedDate {
+    DateTime dateTime = DateTime.parse(date);
+    String formattedDate = DateFormat('MMMM dd, yyyy').format(dateTime);
+    String formattedTime = DateFormat('HH:mm').format(dateTime); // Hour and minute
+    return '$formattedDate - $formattedTime';
+  }
 }

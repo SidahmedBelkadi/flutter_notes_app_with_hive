@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:notes_app_hive_db/core/constants/app_strings.dart';
+import 'package:notes_app_hive_db/core/helpers/dialog.dart';
+import 'package:notes_app_hive_db/core/helpers/snackbar.dart';
 import 'package:notes_app_hive_db/models/note_model.dart';
 import 'package:notes_app_hive_db/screens/edit_note_screen.dart';
 
@@ -45,7 +48,17 @@ class NoteItem extends StatelessWidget {
                 ),
                 const SizedBox(width: 24),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    AppDialog.showDeleteNoteDialog(
+                      context: context,
+                      onPressed: () {
+                        noteModel.delete();
+                        Navigator.of(context).pop();
+                        AppSnackbar.showSuccessSnackBar(
+                            message: kNoteDeletedMessage, context: context);
+                      },
+                    );
+                  },
                   child: const Icon(
                     CupertinoIcons.trash_fill,
                     size: 24,
