@@ -22,7 +22,7 @@ TextEditingController descriptionTextEditingController = TextEditingController()
 class _AddNoteFormState extends State<AddNoteForm> {
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AddNoteCubit, AddNoteState>(
+    return BlocConsumer<AddNoteCubit, AddNoteState>(
       listener: (context, state) {
         if (state is AddNoteFailureState) {
           AppSnackbar.showErrorSnackBar(message: kNoteFailureMessage, context: context);
@@ -35,26 +35,27 @@ class _AddNoteFormState extends State<AddNoteForm> {
           AppSnackbar.showSuccessSnackBar(message: kNoteSuccessMessage, context: context);
         }
       },
-      child: Container(
-        padding: const EdgeInsets.all(12.0),
-        child: Form(
-          key: addNoteFormKey,
-          child: Column(
-            children: [
-              CustomTextFormField(
-                title: "Title",
-                textEditingController: titleTextEditingController,
-              ),
-              const SizedBox(height: 16),
-              CustomTextFormField(
-                title: "Description",
-                textEditingController: descriptionTextEditingController,
-                maxLines: 6,
-              ),
-              const SizedBox(height: 36),
-              BlocBuilder<AddNoteCubit, AddNoteState>(
-                builder: (context, state) {
-                  return CustomAddNoteFormElevatedButton(
+      builder: (context, state) {
+        return Container(
+          padding: const EdgeInsets.all(12.0),
+          child: AbsorbPointer(
+            absorbing: state is AddNoteLoadingState ? true : false,
+            child: Form(
+              key: addNoteFormKey,
+              child: Column(
+                children: [
+                  CustomTextFormField(
+                    title: "Title",
+                    textEditingController: titleTextEditingController,
+                  ),
+                  const SizedBox(height: 16),
+                  CustomTextFormField(
+                    title: "Description",
+                    textEditingController: descriptionTextEditingController,
+                    maxLines: 6,
+                  ),
+                  const SizedBox(height: 36),
+                  CustomAddNoteFormElevatedButton(
                     onPressed: () {
                       if (addNoteFormKey.currentState!.validate()) {
                         final noteModel = NoteModel(
@@ -82,13 +83,13 @@ class _AddNoteFormState extends State<AddNoteForm> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                  );
-                },
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
