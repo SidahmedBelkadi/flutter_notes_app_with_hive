@@ -28,23 +28,14 @@ _showModalBottomSheet(BuildContext context, Widget addNoteForm) {
     isDismissible: false,
     showDragHandle: true,
     builder: (context) {
-      return DraggableScrollableSheet(
-        expand: false,
-        initialChildSize: 0.6,
-        minChildSize: 0.6,
-        maxChildSize: 0.9,
-        builder: (context, scrollController) {
-          return SingleChildScrollView(
-            controller: scrollController,
-            child: Padding(
-              padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom + 24),
-              child: BlocProvider(
-                create: (context) => AddNoteCubit(),
-                child: addNoteForm,
-              ),
-            ),
-          );
-        },
+      return SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: BlocProvider(
+            create: (context) => AddNoteCubit(),
+            child: addNoteForm,
+          ),
+        ),
       );
     },
   );
