@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 
 class CustomAddNoteFormElevatedButton extends StatelessWidget {
   final void Function()? onPressed;
+  final Widget child;
   const CustomAddNoteFormElevatedButton({
     super.key,
     this.onPressed,
+    required this.child,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: 60,
       width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
         onPressed: onPressed,
@@ -21,10 +24,7 @@ class CustomAddNoteFormElevatedButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.0),
           ),
         ),
-        child: const Text(
-          "Create note",
-          style: TextStyle(fontSize: 16),
-        ),
+        child: child,
       ),
     );
   }
