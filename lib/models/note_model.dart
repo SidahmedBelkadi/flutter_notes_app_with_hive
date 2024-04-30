@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+import 'package:intl/intl.dart';
 
 part 'note_model.g.dart';
 
@@ -19,4 +20,6 @@ class NoteModel extends HiveObject {
     required this.date,
     required this.color,
   });
+
+  String get formattedDate => DateFormat('MMMM dd, yyyy').format(DateTime.parse(date));
 }

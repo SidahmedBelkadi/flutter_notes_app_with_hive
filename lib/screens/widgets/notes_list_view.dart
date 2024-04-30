@@ -27,7 +27,7 @@ class NotesListView extends StatelessWidget {
                 return NoteItem(
                   title: note.title,
                   description: note.description,
-                  date: note.date,
+                  date: note.formattedDate,
                 );
               },
               separatorBuilder: (_, __) => const SizedBox(height: 16),
