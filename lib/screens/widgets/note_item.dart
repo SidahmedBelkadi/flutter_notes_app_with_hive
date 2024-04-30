@@ -3,7 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:notes_app_hive_db/screens/edit_note_screen.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  final String title;
+  final String description;
+  final String date;
+
+  const NoteItem({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.date,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +32,15 @@ class NoteItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Flexible(
+                Flexible(
                   child: Text(
-                    "Eiusmod cupidatat magna dolore officia minim do ipsum cupidatat cupidatat eu amet mollit deserunt eiusmod.",
-                    style: TextStyle(
+                    title,
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
@@ -52,7 +62,7 @@ class NoteItem extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              "Enim aliqua cillum sit elit commodo anim deserunt. Magna nisi do elit nisi culpa sint ex  Amet nostrud consequat incididunt nisi",
+              description,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black.withOpacity(.6),
@@ -62,7 +72,7 @@ class NoteItem extends StatelessWidget {
             Align(
               alignment: Alignment.centerRight,
               child: Text(
-                "May 21, 2023",
+                date,
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.black.withOpacity(.9),
