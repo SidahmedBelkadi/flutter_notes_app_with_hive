@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:notes_app_hive_db/core/constants/app_strings.dart';
 import 'package:notes_app_hive_db/core/helpers/bloc_observer.dart';
+import 'package:notes_app_hive_db/cubits/get_notes/get_notes_cubit.dart';
 import 'package:notes_app_hive_db/models/note_model.dart';
 import 'core/theme/app_theme.dart';
 
@@ -27,10 +28,13 @@ class NotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: AppTheme.darkTheme,
-      debugShowCheckedModeBanner: false,
-      home: const NotesScreen(),
+    return BlocProvider(
+      create: (context) => GetNotesCubit(),
+      child: MaterialApp(
+        theme: AppTheme.darkTheme,
+        debugShowCheckedModeBanner: false,
+        home: const NotesScreen(),
+      ),
     );
   }
 }

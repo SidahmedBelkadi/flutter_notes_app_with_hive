@@ -9,7 +9,7 @@ part 'get_notes_state.dart';
 class GetNotesCubit extends Cubit<GetNotesState> {
   GetNotesCubit() : super(GetNotesInitial());
 
-  getNotes() {
+  fetchNotes() {
     try {
       Box notesBox = Hive.box<NoteModel>(kNotesBox);
       List<NoteModel> notes = notesBox.values.map((e) => e as NoteModel).toList();

@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app_hive_db/core/constants/app_strings.dart';
 import 'package:notes_app_hive_db/core/helpers/dialog.dart';
 import 'package:notes_app_hive_db/core/helpers/snackbar.dart';
+import 'package:notes_app_hive_db/cubits/get_notes/get_notes_cubit.dart';
 import 'package:notes_app_hive_db/models/note_model.dart';
 import 'package:notes_app_hive_db/screens/edit_note_screen.dart';
 
@@ -53,6 +55,7 @@ class NoteItem extends StatelessWidget {
                       context: context,
                       onPressed: () {
                         noteModel.delete();
+                        context.read<GetNotesCubit>().fetchNotes();
                         Navigator.of(context).pop();
                         AppSnackbar.showSuccessSnackBar(
                             message: kNoteDeletedMessage, context: context);

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app_hive_db/core/constants/app_strings.dart';
 import 'package:notes_app_hive_db/core/helpers/snackbar.dart';
 import 'package:notes_app_hive_db/cubits/add_note/add_note_cubit.dart';
+import 'package:notes_app_hive_db/cubits/get_notes/get_notes_cubit.dart';
 import 'package:notes_app_hive_db/models/note_model.dart';
 
 import 'add_note_form_button.dart';
@@ -30,7 +31,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
         if (state is AddNoteSuccessState) {
           Navigator.of(context).pop();
-
+          context.read<GetNotesCubit>().fetchNotes();
           titleTextEditingController.clear();
           descriptionTextEditingController.clear();
           AppSnackbar.showSuccessSnackBar(message: kNoteSuccessMessage, context: context);
