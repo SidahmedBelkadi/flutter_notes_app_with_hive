@@ -38,17 +38,7 @@ class _EditNoteScreenBodyState extends State<EditNoteScreenBody> {
             CustomAppBar(
               title: "Edit Note",
               icon: Icons.check,
-              onPressed: () {
-                if (editNoteFormKey.currentState!.validate() &&
-                    (widget.note.title != titleTextEditingController.text.trim() ||
-                        widget.note.description != descriptionTextEditingController.text.trim())) {
-                  widget.note.title = titleTextEditingController.text.trim();
-                  widget.note.description = descriptionTextEditingController.text.trim();
-                  widget.note.save();
-                  BlocProvider.of<GetNotesCubit>(context).fetchNotes();
-                  Navigator.pop(context);
-                }
-              },
+              onPressed: () => _validateAndUpdateNote(),
             ),
             Form(
               key: editNoteFormKey,
@@ -72,5 +62,17 @@ class _EditNoteScreenBodyState extends State<EditNoteScreenBody> {
         ),
       ),
     );
+  }
+
+  _validateAndUpdateNote() {
+    if (editNoteFormKey.currentState!.validate() &&
+        (widget.note.title != titleTextEditingController.text.trim() ||
+            widget.note.description != descriptionTextEditingController.text.trim())) {
+      widget.note.title = titleTextEditingController.text.trim();
+      widget.note.description = descriptionTextEditingController.text.trim();
+      widget.note.save();
+      BlocProvider.of<GetNotesCubit>(context).fetchNotes();
+      Navigator.pop(context);
+    }
   }
 }
