@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:notes_app_hive_db/core/constants/app_strings.dart';
 import 'package:notes_app_hive_db/core/helpers/bloc_observer.dart';
@@ -28,12 +29,17 @@ class NotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => GetNotesCubit(),
-      child: MaterialApp(
-        theme: AppTheme.darkTheme,
-        debugShowCheckedModeBanner: false,
-        home: const NotesScreen(),
+    return ScreenUtilInit(
+      designSize: const Size(412, 915),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) => BlocProvider(
+        create: (context) => GetNotesCubit(),
+        child: MaterialApp(
+          theme: AppTheme.darkTheme,
+          debugShowCheckedModeBanner: false,
+          home: const NotesScreen(),
+        ),
       ),
     );
   }
