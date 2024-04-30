@@ -11,7 +11,7 @@ void main() async {
 
   /// Initialize Hive And Setup Notes Box.
   await Hive.initFlutter();
-  await Hive.openBox(kNotes);
+  await Hive.openBox(kNotesBox);
   Hive.registerAdapter(NoteModelAdapter());
 
   runApp(const NotesApp());

@@ -1,1 +1,1 @@
-const kNotes = "notes_box";
+const kNotesBox = "notes_box";
