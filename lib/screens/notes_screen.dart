@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app_hive_db/core/constants/app_colors.dart';
+import 'package:notes_app_hive_db/cubits/add_note/add_note_cubit.dart';
 import 'package:notes_app_hive_db/screens/widgets/notes_screen_body.dart';
 import 'widgets/add_note_form.dart';
 
@@ -19,7 +21,7 @@ class NotesScreen extends StatelessWidget {
   }
 }
 
-_showModalBottomSheet(BuildContext context, Widget widget) {
+_showModalBottomSheet(BuildContext context, Widget addNoteForm) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -36,7 +38,10 @@ _showModalBottomSheet(BuildContext context, Widget widget) {
             controller: scrollController,
             child: Padding(
               padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom + 24),
-              child: widget,
+              child: BlocProvider(
+                create: (context) => AddNoteCubit(),
+                child: addNoteForm,
+              ),
             ),
           );
         },
