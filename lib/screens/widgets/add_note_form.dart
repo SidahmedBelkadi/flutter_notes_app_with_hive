@@ -30,6 +30,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
         if (state is AddNoteSuccessState) {
           Navigator.of(context).pop();
+          titleTextEditingController.clear();
+          descriptionTextEditingController.clear();
           AppSnackbar.showSuccessSnackBar(message: kNoteSuccessMessage, context: context);
         }
       },
@@ -67,7 +69,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
                       ? const CircularProgressIndicator()
                       : const Text(
                           "Create note",
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                 ),
               ],

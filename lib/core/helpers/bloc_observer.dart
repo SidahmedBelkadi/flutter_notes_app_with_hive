@@ -14,7 +14,7 @@ class AppBlocObserver implements BlocObserver {
 
   @override
   void onCreate(BlocBase bloc) {
-    // TODO: implement onCreate
+    debugPrint("Create = $bloc");
   }
 
   @override

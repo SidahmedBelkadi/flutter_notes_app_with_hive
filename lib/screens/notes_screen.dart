@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_hive_db/core/constants/app_colors.dart';
 import 'package:notes_app_hive_db/screens/widgets/notes_screen_body.dart';
 import 'widgets/add_note_form.dart';
 
@@ -11,8 +12,8 @@ class NotesScreen extends StatelessWidget {
       body: const NotesSceenBody(),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showModalBottomSheet(context, const AddNoteForm()),
-        backgroundColor: Colors.blueAccent,
-        child: const Icon(Icons.add, color: Colors.white, size: 28),
+        backgroundColor: AppColors.blue,
+        child: const Icon(Icons.add, color: Colors.black, size: 28),
       ),
     );
   }

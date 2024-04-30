@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_hive_db/core/constants/app_colors.dart';
 
 class CustomAddNoteFormElevatedButton extends StatelessWidget {
   final void Function()? onPressed;
@@ -17,7 +18,7 @@ class CustomAddNoteFormElevatedButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.blue,
+          backgroundColor: AppColors.blue,
           foregroundColor: Colors.white,
           padding: const EdgeInsets.symmetric(vertical: 16),
           shape: RoundedRectangleBorder(
