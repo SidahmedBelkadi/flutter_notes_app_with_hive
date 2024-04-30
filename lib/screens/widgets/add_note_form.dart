@@ -30,6 +30,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
         if (state is AddNoteSuccessState) {
           Navigator.of(context).pop();
+
           titleTextEditingController.clear();
           descriptionTextEditingController.clear();
           AppSnackbar.showSuccessSnackBar(message: kNoteSuccessMessage, context: context);

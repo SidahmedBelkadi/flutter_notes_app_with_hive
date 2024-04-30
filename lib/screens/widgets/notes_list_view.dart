@@ -22,14 +22,7 @@ class NotesListView extends StatelessWidget {
               padding: const EdgeInsets.only(top: 16, bottom: 8),
               shrinkWrap: true,
               itemCount: state.notes.length,
-              itemBuilder: (context, index) {
-                final note = state.notes[index];
-                return NoteItem(
-                  title: note.title,
-                  description: note.description,
-                  date: note.formattedDate,
-                );
-              },
+              itemBuilder: (context, index) => NoteItem(noteModel: state.notes[index]),
               separatorBuilder: (_, __) => const SizedBox(height: 16),
             ),
           );

@@ -1,18 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:notes_app_hive_db/models/note_model.dart';
 import 'package:notes_app_hive_db/screens/edit_note_screen.dart';
 
 class NoteItem extends StatelessWidget {
-  final String title;
-  final String description;
-  final String date;
+  final NoteModel noteModel;
 
-  const NoteItem({
-    super.key,
-    required this.title,
-    required this.description,
-    required this.date,
-  });
+  const NoteItem({super.key, required this.noteModel});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +22,7 @@ class NoteItem extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          color: const Color(0xffFFCC80),
+          color: Color(noteModel.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -39,7 +33,7 @@ class NoteItem extends StatelessWidget {
               children: [
                 Flexible(
                   child: Text(
-                    title,
+                    noteModel.title,
                     style: const TextStyle(
                       color: Colors.black,
                       fontSize: 22,
@@ -62,7 +56,7 @@ class NoteItem extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              description,
+              noteModel.description,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black.withOpacity(.6),
@@ -72,7 +66,7 @@ class NoteItem extends StatelessWidget {
             Align(
               alignment: Alignment.centerRight,
               child: Text(
-                date,
+                noteModel.formattedDate,
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.black.withOpacity(.9),
