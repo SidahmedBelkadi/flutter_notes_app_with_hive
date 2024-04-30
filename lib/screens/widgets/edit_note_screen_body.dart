@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:notes_app_hive_db/cubits/get_notes/get_notes_cubit.dart';
 import 'package:notes_app_hive_db/models/note_model.dart';
 import 'package:notes_app_hive_db/screens/widgets/custom_app_bar.dart';
@@ -31,34 +32,36 @@ class _EditNoteScreenBodyState extends State<EditNoteScreenBody> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-        child: Column(
-          children: [
-            CustomAppBar(
-              title: "Edit Note",
-              icon: Icons.check,
-              onPressed: () => _validateAndUpdateNote(),
-            ),
-            Form(
-              key: editNoteFormKey,
-              child: Column(
-                children: [
-                  const SizedBox(height: 36),
-                  CustomTextFormField(
-                    title: "Title",
-                    textEditingController: titleTextEditingController,
-                  ),
-                  const SizedBox(height: 16),
-                  CustomTextFormField(
-                    title: "Description",
-                    textEditingController: descriptionTextEditingController,
-                    maxLines: 6,
-                  ),
-                ],
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.sp, vertical: 12.sp),
+          child: Column(
+            children: [
+              CustomAppBar(
+                title: "Edit Note",
+                icon: Icons.check,
+                onPressed: () => _validateAndUpdateNote(),
               ),
-            ),
-          ],
+              Form(
+                key: editNoteFormKey,
+                child: Column(
+                  children: [
+                    SizedBox(height: 36.h),
+                    CustomTextFormField(
+                      title: "Title",
+                      textEditingController: titleTextEditingController,
+                    ),
+                    SizedBox(height: 16.h),
+                    CustomTextFormField(
+                      title: "Description",
+                      textEditingController: descriptionTextEditingController,
+                      maxLines: 6,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

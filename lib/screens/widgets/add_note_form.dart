@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:notes_app_hive_db/core/constants/app_strings.dart';
 import 'package:notes_app_hive_db/core/helpers/snackbar.dart';
 import 'package:notes_app_hive_db/cubits/add_note/add_note_cubit.dart';
@@ -40,7 +41,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
       },
       builder: (context, state) {
         return Container(
-          padding: const EdgeInsets.all(12.0),
+          padding: EdgeInsets.all(12.0.sp),
           child: AbsorbPointer(
             absorbing: state is AddNoteLoadingState ? true : false,
             child: Form(
@@ -51,29 +52,29 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     title: "Title",
                     textEditingController: titleTextEditingController,
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   CustomTextFormField(
                     title: "Description",
                     textEditingController: descriptionTextEditingController,
                     maxLines: 6,
                   ),
-                  const SizedBox(height: 36),
+                  SizedBox(height: 36.h),
                   const ColorsListView(),
-                  const SizedBox(height: 36),
+                  SizedBox(height: 36.h),
                   CustomAddNoteFormElevatedButton(
                     onPressed: () => _validateAndAddNewNote(),
                     child: state is AddNoteLoadingState
-                        ? const SizedBox(
-                            height: 24,
-                            width: 24,
+                        ? SizedBox(
+                            height: 24.h,
+                            width: 24.w,
                             child: CircularProgressIndicator(
                               color: Colors.black,
                             ),
                           )
-                        : const Text(
+                        : Text(
                             "Create note",
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:notes_app_hive_db/cubits/add_note/add_note_cubit.dart';
 import 'package:notes_app_hive_db/screens/widgets/color_picker_item.dart';
 
@@ -29,7 +30,7 @@ class _ColorsListViewState extends State<ColorsListView> {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        height: 38,
+        height: 38.h,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
@@ -43,7 +44,7 @@ class _ColorsListViewState extends State<ColorsListView> {
               setState(() {});
             },
           ),
-          separatorBuilder: (_, __) => const SizedBox(width: 8),
+          separatorBuilder: (_, __) => SizedBox(width: 8.w),
         ),
       ),
     );

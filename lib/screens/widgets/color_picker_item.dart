@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ColorPickerItem extends StatelessWidget {
   final bool isSelected;
@@ -16,12 +17,12 @@ class ColorPickerItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 38,
-        width: 38,
+        height: 38.h,
+        width: 38.w,
         decoration: BoxDecoration(
           color: color,
-          border: isSelected ? Border.all(color: Colors.white, width: 3) : null,
-          borderRadius: BorderRadius.circular(32),
+          shape: BoxShape.circle,
+          border: isSelected ? Border.all(color: Colors.white, width: 3.w) : null,
         ),
       ),
     );

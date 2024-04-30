@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'custom_appbar_icon.dart';
 
@@ -15,7 +16,7 @@ class CustomAppBar extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(fontSize: 28),
+          style: TextStyle(fontSize: 28.sp),
         ),
         CustomAppBarIcon(
           icon: icon,

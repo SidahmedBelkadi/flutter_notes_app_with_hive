@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:notes_app_hive_db/core/constants/app_strings.dart';
 import 'package:notes_app_hive_db/core/helpers/dialog.dart';
 import 'package:notes_app_hive_db/core/helpers/snackbar.dart';
@@ -24,11 +25,11 @@ class NoteItem extends StatelessWidget {
         );
       },
       child: Container(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16.sp),
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           color: Color(noteModel.color),
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16.sp),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,16 +40,16 @@ class NoteItem extends StatelessWidget {
                 Flexible(
                   child: Text(
                     noteModel.title,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.black,
-                      fontSize: 22,
+                      fontSize: 22.sp,
                       fontWeight: FontWeight.bold,
                     ),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
                   ),
                 ),
-                const SizedBox(width: 24),
+                SizedBox(width: 24.w),
                 GestureDetector(
                   onTap: () {
                     AppDialog.showDeleteNoteDialog(
@@ -62,29 +63,29 @@ class NoteItem extends StatelessWidget {
                       },
                     );
                   },
-                  child: const Icon(
+                  child: Icon(
                     CupertinoIcons.trash_fill,
-                    size: 24,
+                    size: 24.sp,
                     color: Colors.black,
                   ),
                 )
               ],
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16.h),
             Text(
               noteModel.description,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
                 color: Colors.black.withOpacity(.6),
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16.h),
             Align(
               alignment: Alignment.centerRight,
               child: Text(
                 noteModel.formattedDate,
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   color: Colors.black.withOpacity(.9),
                 ),
               ),

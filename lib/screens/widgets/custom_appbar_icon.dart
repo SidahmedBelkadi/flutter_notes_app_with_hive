@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBarIcon extends StatelessWidget {
   final IconData icon;
@@ -10,15 +11,15 @@ class CustomAppBarIcon extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        height: 45,
-        width: 45,
+        height: 45.sp,
+        width: 45.sp,
         alignment: Alignment.center,
-        padding: const EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(10.0.sp),
         decoration: BoxDecoration(
           color: Colors.white.withOpacity(.05),
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16.sp),
         ),
-        child: Icon(icon, size: 28),
+        child: Icon(icon, size: 28.sp),
       ),
     );
   }

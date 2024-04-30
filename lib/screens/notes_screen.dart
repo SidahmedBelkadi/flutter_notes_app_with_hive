@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:notes_app_hive_db/core/constants/app_colors.dart';
 import 'package:notes_app_hive_db/screens/widgets/add_note_modal_bottom_sheet.dart';
 import 'package:notes_app_hive_db/screens/widgets/notes_screen_body.dart';
@@ -22,7 +23,7 @@ class NotesScreen extends StatelessWidget {
           },
         ),
         backgroundColor: AppColors.blue,
-        child: const Icon(Icons.add, color: Colors.black, size: 28),
+        child: Icon(Icons.add, color: Colors.black, size: 28.sp),
       ),
     );
   }
